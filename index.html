@@ -18,11 +18,18 @@
             padding: 20px;
         }
 
-        header,
+        header {
+            text-align: center;
+            background-color: #8b7e8d;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+
         footer {
             text-align: center;
-            background-color: #f4f4f4;
+            background-color: #9e9e9e;
             padding: 10px 0;
+            margin-top: 30px;
         }
 
         main {
@@ -30,13 +37,19 @@
             flex-direction: column;
         }
 
+        h1 {
+            font-size: 60px;
+            font-family: fantasy;
+        }
+
         #art-container {
             position: relative;
             width: 90%;
             height: 700px;
-            border: 2px solid #ccc;
+            border: 2px solid ;
             align-items: center;
             margin: 0 auto;
+            margin-bottom: 30px;
         }
 
         .art-image {
@@ -50,8 +63,28 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
             float: left;
+            margin-bottom: 30px;
         }
 
+        #email-section {
+            float: left;
+            margin-bottom: 30px;
+        }
+
+        #color-picker-section {
+            float: left;
+            display: grid;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        #upload-section {
+            float: left;
+            display: grid;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+    
         label {
             display: block;
             margin-bottom: 5px;
@@ -242,11 +275,6 @@
                     <input type="range" id="rotate-image6" class="rotate" name="rotate-image6" min="0" max="360">
                 </div>
             </div>
-            <div id="email-section">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-                <button id="send-email">Send Art</button>
-            </div>
             <div id="color-picker-section">
                 <label for="background-color-picker">Background Color:</label>
                 <input type="color" id="background-color-picker" name="background-color-picker">
@@ -255,9 +283,14 @@
                 <label for="file-upload">Upload Image:</label>
                 <input type="file" id="file-upload" accept="image/*">
             </div>
+            <div id="email-section">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <button id="send-email">Send Art</button>
+            </div>
         </main>
         <footer>
-            <p>© Art by...</p>
+            <p>© Art by Tiffany See, for more go to tiffanysee.xyz</p>
         </footer>
     </div>
     <script>
