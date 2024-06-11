@@ -7,13 +7,13 @@
     <title>Interactive Art Page</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            width: 90%;
+            width: 95%;
             margin: 0 auto;
             padding: 20px;
         }
@@ -32,7 +32,7 @@
 
         #art-container {
             position: relative;
-            width: 80%;
+            width: 90%;
             height: 700px;
             border: 2px solid #ccc;
             align-items: center;
@@ -41,14 +41,14 @@
 
         .art-image {
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
         }
 
         #controls {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            gap: 10px;
             float: left;
         }
 
@@ -60,33 +60,6 @@
         input[type="range"] {
             width: 100%;
         }
-
-        #image1 {
-            width: 300px;
-            height: 300px;
-            background-image: url("GIFs/bighandprintvasevideo.gif");
-        }
-
-        #image2 {
-            width: 300px;
-            height: 300px;
-            background-image: url("GIFs/droppedvasevideo.gif");
-        }
-
-        #image3 {
-            width: 300px;
-            height: 300px;
-            background-image: url("GIFs/handlecupvideo.gif");
-        }
-
-        .ImageDisplay {
-            width: 300px;
-            height: 300px;
-            margin-top: 20px;
-            background-size: cover;
-            background-position: center;
-            border: 1px solid #ccc;
-        }
     </style>
 </head>
 
@@ -97,120 +70,194 @@
         </header>
         <main>
             <div id="art-container">
-
-
+                <!-- Placeholders for images with random sources -->
+                <img src="GIFs/bighandprintvasevideo.gif" id="image1" class="art-image" alt="Art Image 1">
+                <img src="GIFs/droppedvasevideo.gif" id="image2" class="art-image" alt="Art Image 2">
+                <img src="GIFs/handlecupvideo.gif" id="image3" class="art-image" alt="Art Image 3">
+                <img src="GIFs/squigglycupvideo.gif" id="image4" class="art-image" alt="Art Image 4">
+                <img src="GIFs/vasewithshoelacevideo.gif" id="image5" class="art-image" alt="Art Image 5">
+                <img src="GIFs/heavybasecupvideo.gif" id="image6" class="art-image" alt="Art Image 6">
             </div>
             <div id="controls">
                 <!-- Controls for manipulating art -->
-
-                <div class="image-dropdown-group" id="controls-image1">
-                    <h3>Controls for Images</h3>
-
-                    <label for="ImageDropdown">Select Artwork:</label>
-                    <select id="ImageDropdown" onchange="updateselection()">
-                        <option value="image1">Image 1</option>
-                        <option value="image2">Image 2</option>
-                        <option value="image3">Image 3</option>
-
+                <div class="control-group" id="controls-image1">
+                    <h3>Controls for Image 1</h3>
+                    <label for="blend-mode-image1">Blend Mode:</label>
+                    <select id="blend-mode-image1" class="blend-mode">
+                        <option value="normal">Normal</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="screen">Screen</option>
+                        <option value="overlay">Overlay</option>
                         <!-- Add more blend modes as needed -->
                     </select>
-                    <div id="ImageDisplay" class="ImageDisplay">
 
+                    <label for="position-x-image1">Position X:</label>
+                    <input type="range" id="position-x-image1" class="position-x" name="position-x-image1" min="0"
+                        max="100">
 
+                    <label for="position-y-image1">Position Y:</label>
+                    <input type="range" id="position-y-image1" class="position-y" name="position-y-image1" min="0"
+                        max="100">
 
+                    <label for="scale-image1">Scale:</label>
+                    <input type="range" id="scale-image1" class="scale" name="scale-image1" min="0.1" max="3"
+                        step="0.1">
 
-
-
-                        <label for="blend-mode-image1">Blend Mode:</label>
-                        <select id="blend-mode-image1" class="blend-mode">
-                            <option value="normal">Normal</option>
-                            <option value="multiply">Multiply</option>
-                            <option value="screen">Screen</option>
-                            <option value="overlay">Overlay</option>
-                            <!-- Add more blend modes as needed -->
-                        </select>
-
-                        <label for="position-x-image1">Position X:</label>
-                        <input type="range" id="position-x-image1" class="position-x" name="position-x-image1" min="0"
-                            max="100">
-
-                        <label for="position-y-image1">Position Y:</label>
-                        <input type="range" id="position-y-image1" class="position-y" name="position-y-image1" min="0"
-                            max="100">
-                    </div>
-
-
-
-
-
-                    <div class="control-group" id="controls-image2">
-                        <h3>Controls for Image 2</h3>
-                        <label for="blend-mode-image2">Blend Mode:</label>
-                        <select id="blend-mode-image2" class="blend-mode">
-                            <option value="normal">Normal</option>
-                            <option value="multiply">Multiply</option>
-                            <option value="screen">Screen</option>
-                            <option value="overlay">Overlay</option>
-                            <!-- Add more blend modes as needed -->
-                        </select>
-
-                        <label for="position-x-image2">Position X:</label>
-                        <input type="range" id="position-x-image2" class="position-x" name="position-x-image2" min="0"
-                            max="100">
-
-                        <label for="position-y-image2">Position Y:</label>
-                        <input type="range" id="position-y-image2" class="position-y" name="position-y-image2" min="0"
-                            max="100">
-                    </div>
-
-                    <div class="control-group" id="controls-image3">
-                        <h3>Controls for Image 3</h3>
-                        <label for="blend-mode-image3">Blend Mode:</label>
-                        <select id="blend-mode-image3" class="blend-mode">
-                            <option value="normal">Normal</option>
-                            <option value="multiply">Multiply</option>
-                            <option value="screen">Screen</option>
-                            <option value="overlay">Overlay</option>
-                            <!-- Add more blend modes as needed -->
-                        </select>
-
-                        <label for="position-x-image3">Position X:</label>
-                        <input type="range" id="position-x-image3" class="position-x" name="position-x-image3" min="0"
-                            max="100">
-
-                        <label for="position-y-image3">Position Y:</label>
-                        <input type="range" id="position-y-image3" class="position-y" name="position-y-image3" min="0"
-                            max="100">
-                    </div>
-
-                    <div class="control-group" id="controls-image4">
-                        <h3>Controls for Image 4</h3>
-                        <label for="blend-mode-image4">Blend Mode:</label>
-                        <select id="blend-mode-image4" class="blend-mode">
-                            <option value="normal">Normal</option>
-                            <option value="multiply">Multiply</option>
-                            <option value="screen">Screen</option>
-                            <option value="overlay">Overlay</option>
-                            <!-- Add more blend modes as needed -->
-                        </select>
-
-                        <label for="position-x-image4">Position X:</label>
-                        <input type="range" id="position-x-image4" class="position-x" name="position-x-image4" min="0"
-                            max="100">
-
-                        <label for="position-y-image3">Position Y:</label>
-                        <input type="range" id="position-y-image4" class="position-y" name="position-y-image4" min="0"
-                            max="100">
-                    </div>
+                    <label for="rotate-image1">Rotate (degrees):</label>
+                    <input type="range" id="rotate-image1" class="rotate" name="rotate-image1" min="0" max="360">
                 </div>
-                <div id="email-section">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
-                    <button id="send-email">Send Art</button>
+
+                <div class="control-group" id="controls-image2">
+                    <h3>Controls for Image 2</h3>
+                    <label for="blend-mode-image2">Blend Mode:</label>
+                    <select id="blend-mode-image2" class="blend-mode">
+                        <option value="normal">Normal</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="screen">Screen</option>
+                        <option value="overlay">Overlay</option>
+                        <!-- Add more blend modes as needed -->
+                    </select>
+
+                    <label for="position-x-image2">Position X:</label>
+                    <input type="range" id="position-x-image2" class="position-x" name="position-x-image2" min="0"
+                        max="100">
+
+                    <label for="position-y-image2">Position Y:</label>
+                    <input type="range" id="position-y-image2" class="position-y" name="position-y-image2" min="0"
+                        max="100">
+
+                    <label for="scale-image2">Scale:</label>
+                    <input type="range" id="scale-image2" class="scale" name="scale-image2" min="0.1" max="3"
+                        step="0.1">
+
+                    <label for="rotate-image2">Rotate (degrees):</label>
+                    <input type="range" id="rotate-image2" class="rotate" name="rotate-image2" min="0" max="360">
                 </div>
+
+                <div class="control-group" id="controls-image3">
+                    <h3>Controls for Image 3</h3>
+                    <label for="blend-mode-image3">Blend Mode:</label>
+                    <select id="blend-mode-image3" class="blend-mode">
+                        <option value="normal">Normal</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="screen">Screen</option>
+                        <option value="overlay">Overlay</option>
+                        <!-- Add more blend modes as needed -->
+                    </select>
+
+                    <label for="position-x-image3">Position X:</label>
+                    <input type="range" id="position-x-image3" class="position-x" name="position-x-image3" min="0"
+                        max="100">
+
+                    <label for="position-y-image3">Position Y:</label>
+                    <input type="range" id="position-y-image3" class="position-y" name="position-y-image3" min="0"
+                        max="100">
+
+                    <label for="scale-image3">Scale:</label>
+                    <input type="range" id="scale-image3" class="scale" name="scale-image3" min="0.1" max="3"
+                        step="0.1">
+
+                    <label for="rotate-image3">Rotate (degrees):</label>
+                    <input type="range" id="rotate-image3" class="rotate" name="rotate-image3" min="0" max="360">
+                </div>
+
+                <div class="control-group" id="controls-image4">
+                    <h3>Controls for Image 4</h3>
+                    <label for="blend-mode-image4">Blend Mode:</label>
+                    <select id="blend-mode-image4" class="blend-mode">
+                        <option value="normal">Normal</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="screen">Screen</option>
+                        <option value="overlay">Overlay</option>
+                        <!-- Add more blend modes as needed -->
+                    </select>
+
+                    <label for="position-x-image4">Position X:</label>
+                    <input type="range" id="position-x-image4" class="position-x" name="position-x-image4" min="0"
+                        max="100">
+
+                    <label for="position-y-image4">Position Y:</label>
+                    <input type="range" id="position-y-image4" class="position-y" name="position-y-image4" min="0"
+                        max="100">
+
+                    <label for="scale-image4">Scale:</label>
+                    <input type="range" id="scale-image4" class="scale" name="scale-image4" min="0.1" max="3"
+                        step="0.1">
+
+                    <label for="rotate-image4">Rotate (degrees):</label>
+                    <input type="range" id="rotate-image4" class="rotate" name="rotate-image4" min="0" max="360">
+                </div>
+
+                <div class="control-group" id="controls-image5">
+                    <h3>Controls for Image 5</h3>
+                    <label for="blend-mode-image5">Blend Mode:</label>
+                    <select id="blend-mode-image5" class="blend-mode">
+                        <option value="normal">Normal</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="screen">Screen</option>
+                        <option value="overlay">Overlay</option>
+                        <!-- Add more blend modes as needed -->
+                    </select>
+
+                    <label for="position-x-image5">Position X:</label>
+                    <input type="range" id="position-x-image5" class="position-x" name="position-x-image5" min="0"
+                        max="100">
+
+                    <label for="position-y-image5">Position Y:</label>
+                    <input type="range" id="position-y-image5" class="position-y" name="position-y-image5" min="0"
+                        max="100">
+
+                    <label for="scale-image5">Scale:</label>
+                    <input type="range" id="scale-image5" class="scale" name="scale-image5" min="0.1" max="3"
+                        step="0.1">
+
+                    <label for="rotate-image5">Rotate (degrees):</label>
+                    <input type="range" id="rotate-image5" class="rotate" name="rotate-image5" min="0" max="360">
+                </div>
+
+                <div class="control-group" id="controls-image6">
+                    <h3>Controls for Image 6</h3>
+                    <label for="blend-mode-image6">Blend Mode:</label>
+                    <select id="blend-mode-image6" class="blend-mode">
+                        <option value="normal">Normal</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="screen">Screen</option>
+                        <option value="overlay">Overlay</option>
+                        <!-- Add more blend modes as needed -->
+                    </select>
+
+                    <label for="position-x-image6">Position X:</label>
+                    <input type="range" id="position-x-image6" class="position-x" name="position-x-image6" min="0"
+                        max="100">
+
+                    <label for="position-y-image6">Position Y:</label>
+                    <input type="range" id="position-y-image6" class="position-y" name="position-y-image6" min="0"
+                        max="100">
+
+                    <label for="scale-image6">Scale:</label>
+                    <input type="range" id="scale-image6" class="scale" name="scale-image6" min="0.1" max="3"
+                        step="0.1">
+
+                    <label for="rotate-image6">Rotate (degrees):</label>
+                    <input type="range" id="rotate-image6" class="rotate" name="rotate-image6" min="0" max="360">
+                </div>
+            </div>
+            <div id="email-section">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <button id="send-email">Send Art</button>
+            </div>
+            <div id="color-picker-section">
+                <label for="background-color-picker">Background Color:</label>
+                <input type="color" id="background-color-picker" name="background-color-picker">
+            </div>
+            <div id="upload-section">
+                <label for="file-upload">Upload Image:</label>
+                <input type="file" id="file-upload" accept="image/*">
+            </div>
         </main>
         <footer>
-            <p>© Art by Tiffany See</p>
+            <p>© Art by...</p>
         </footer>
     </div>
     <script>
@@ -222,6 +269,33 @@
                 const blendModeSelect = document.getElementById(`blend-mode-${imageId}`);
                 const positionXInput = document.getElementById(`position-x-${imageId}`);
                 const positionYInput = document.getElementById(`position-y-${imageId}`);
+                const scaleInput = document.getElementById(`scale-${imageId}`);
+                const rotateInput = document.getElementById(`rotate-${imageId}`);
+                const artContainer = document.getElementById('art-container');
+                const colorPicker = document.getElementById('background-color-picker');
+                const fileUpload = document.getElementById('file-upload');
+
+                fileUpload.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (event) {
+                            const img = new Image();
+                            img.src = event.target.result;
+                            img.onload = function () {
+                                const newImage = document.createElement('img');
+                                newImage.src = img.src;
+                                newImage.classList.add('art-image');
+                                artContainer.appendChild(newImage);
+                            };
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+
+                colorPicker.addEventListener('change', (e) => {
+                    artContainer.style.backgroundColor = e.target.value;
+                });
 
                 blendModeSelect.addEventListener('change', (e) => {
                     image.style.mixBlendMode = e.target.value;
@@ -234,6 +308,15 @@
                 positionYInput.addEventListener('input', (e) => {
                     image.style.top = `${e.target.value}%`;
                 });
+
+                scaleInput.addEventListener('input', (e) => {
+                    image.style.transform = `scale(${e.target.value}) rotate(${rotateInput.value}deg)`;
+                });
+
+                rotateInput.addEventListener('input', (e) => {
+                    image.style.transform = `scale(${scaleInput.value}) rotate(${e.target.value}deg)`;
+                });
+
             });
 
             // Function to send email with snapshot (requires server-side code)
@@ -245,20 +328,6 @@
             document.getElementById('send-email').addEventListener('click', sendEmail);
         });
 
-        document.getElementById('ImageDropdown').addEventListener('change', function () {
-            const selectedValue = this.value
-            const ImageDisplay = dpcument.getElementById('imageDisplay');
-
-            switch (selectedValue) {
-
-                case 'image1': imageDisplay.style.backgroundimage = 'url("GIFs/bighandprintvasevideo.gif")';
-                    break;
-                case 'image2': imageDisplay.style.backgroundimage = 'url("GIFs/droppedvasevideo.gif")';
-                    break;
-
-
-            }
-        });
     </script>
 </body>
 
